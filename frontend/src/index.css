@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-paper text-ink font-sans antialiased; }
+  h1, h2, h3 { @apply font-display tracking-tight; }
+  input, select, textarea { @apply outline-none; }
+}
+
+@layer components {
+  .card { @apply bg-white rounded-xl border border-paper-300/70 shadow-card; }
+  .input { @apply w-full rounded-lg border border-paper-300 bg-white px-3 py-2 text-sm focus:border-saffron focus:ring-2 focus:ring-saffron/20 transition; }
+  .label { @apply block text-xs font-semibold uppercase tracking-wide text-ink-500 mb-1; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-ink text-white hover:bg-ink-700; }
+  .btn-accent { @apply btn bg-saffron text-white hover:bg-saffron-600; }
+  .btn-ghost { @apply btn bg-transparent text-ink hover:bg-paper-200; }
+  .btn-outline { @apply btn border border-paper-300 bg-white hover:border-ink-300; }
+  .btn-danger { @apply btn bg-before text-white hover:brightness-95; }
+  .num { @apply font-mono tabular-nums; }
+  .th { @apply px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-wider text-ink-500 bg-paper/60; }
+  .td { @apply px-3 py-2.5 text-sm border-t border-paper-200; }
+}
+
+@media print {
+  aside, .no-print { display: none !important; }
+  main { padding: 0 !important; }
+  .card { box-shadow: none; break-inside: avoid; }
+}
